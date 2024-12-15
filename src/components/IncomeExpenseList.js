@@ -9,7 +9,7 @@ const IncomeExpenseList = () => {
   const symbol = getCurrencySymbol(currency);
 
   return (
-    <div>
+    <div className="wrapper">
       <h3>Transaction History</h3>
       <ul>
         {transactions.map((transaction, index) => (

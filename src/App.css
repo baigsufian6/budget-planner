@@ -188,13 +188,13 @@ h1 {
 
 /* Side components (TransactionSummary and IncomeExpenseList) */
 .side-component {
-  flex: 1;
+  flex: 2;
   min-width: 300px;
   max-width: 400px;
 }
 
 .center-component {
-  flex: 2;
+  flex: 1;
   min-width: 400px;
   max-width: 600px;
   margin: 0 auto;
@@ -226,4 +226,11 @@ h1 {
     max-width: 100%;
     min-width: 300px;
   }
+}
+
+.transaction-history {
+  margin-top: 20px;
+}
+.transaction {
+  order: 2;
 }

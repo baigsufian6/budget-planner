@@ -9,9 +9,9 @@ const HomePage = () => {
     <div>
       <h1>Budget Planner</h1>
       <div className="components-container">
-        <TransactionSummary className="side-component" />
-        <BudgetForm className="center-component" />
-        <IncomeExpenseList className="side-component" />
+        <TransactionSummary />
+        <BudgetForm />
+        <IncomeExpenseList />
       </div>
     </div>
   );

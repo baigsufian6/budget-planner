@@ -11,6 +11,7 @@
   transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
   margin-bottom: 20px;
   margin-top: 20px;
+  order: 1;
 }
 
 h3 {
