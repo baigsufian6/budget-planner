@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Provider } from "react-redux";
-import BudgetForm from "./components/BudgetForm";
-import TransactionHistory from "./components/TransactionHistory";
+import HomePage from "./pages/HomePage"; // Import the HomePage component
 import store from "./redux/store"; // Import the Redux store
 import "./App.css"; // Import global styles
 
@@ -20,8 +19,8 @@ const App = () => {
     });
   };
 
+  // Apply dark or light mode theme to the body
   useEffect(() => {
-    // Apply the theme to the body element
     if (isDarkMode) {
       document.body.classList.add("dark-mode");
     } else {
@@ -31,13 +30,11 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <div>
-        <h1>Budget Planner</h1>
-        <button onClick={toggleTheme}>
+      <div className="app-container">
+        <button onClick={toggleTheme} className="theme-toggle-button">
           Switch to {isDarkMode ? "Light" : "Dark"} Mode
         </button>
-        <BudgetForm />
-        <TransactionHistory />
+        <HomePage /> {/* Render HomePage component */}
       </div>
     </Provider>
   );

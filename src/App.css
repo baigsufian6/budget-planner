@@ -1,56 +1,52 @@
-/* Global Styles */
-* {
+/* Global styles for the App */
+body,
+html {
   margin: 0;
   padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #f4f7fc; /* Default light background */
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-y: auto; /* Ensure the page is scrollable */
+}
+
+/* Main container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Arial", sans-serif;
-  background-color: #f4f7fc; /* Default light background */
-  color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  flex-direction: column;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Header */
-h1 {
-  font-size: 2.5rem;
-  color: #4caf50;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-/* Light Mode Specific Styles */
-body:not(.dark-mode) {
-  background-color: #f4f7fc;
-  color: #333;
-}
-
-button {
+/* Button to toggle theme */
+button.theme-toggle-button {
+  padding: 10px 20px;
+  margin-top: 20px;
   background-color: #4caf50;
   color: white;
-  cursor: pointer;
-  font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 8px;
   border: none;
-  margin-top: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+button.theme-toggle-button:hover {
   background-color: #45a049;
 }
 
-/* Dark Mode Styles */
+/* Dark Mode styling */
 body.dark-mode {
   background-color: #333;
-  color: #fff;
+  color: #f1f1f1;
+}
+
+body.dark-mode .app-container {
+  background-color: #444;
 }
 
 body.dark-mode h1,
@@ -81,4 +77,66 @@ body.dark-mode .transaction-type.income {
 
 body.dark-mode .transaction-type.expense {
   background-color: #ff5252;
+}
+
+/* Light Mode styling */
+body.light-mode {
+  background-color: #fff;
+  color: #333;
+}
+
+/* For transaction list */
+ul {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+}
+
+li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #4caf50;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header */
+h1 {
+  font-size: 2.5rem;
+  color: #4caf50;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Light Mode Specific Styles */
+body:not(.dark-mode) {
+  background-color: #f4f7fc;
+  color: #333;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
 }

@@ -1,0 +1,35 @@
+/* HomePage.css */
+
+.homepage-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  overflow-y: auto;
+  height: 100vh; /* Make the container take the full viewport height */
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 36px;
+  color: #333;
+}
+
+/* Dark mode styles */
+.dark .homepage-container {
+  background-color: #111;
+  color: #fff;
+}
+
+.dark h1 {
+  color: #fff;
+}
+
+.scrollable-content {
+  max-height: 80vh; /* Set a max height for the content to prevent overflow */
+  overflow-y: auto;
+  width: 100%;
+  margin-top: 20px;
+  padding-right: 15px; /* To accommodate scrollbar */
+}
