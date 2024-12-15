@@ -8,10 +8,11 @@ const HomePage = () => {
   return (
     <div>
       <h1>Budget Planner</h1>
-      <div></div>
-      <BudgetForm />
-      <TransactionSummary />
-      <IncomeExpenseList />
+      <div className="components-container">
+        <TransactionSummary className="side-component" />
+        <BudgetForm className="center-component" />
+        <IncomeExpenseList className="side-component" />
+      </div>
     </div>
   );
 };

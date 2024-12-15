@@ -50,14 +50,14 @@ const BudgetForm = () => {
           type="number"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
-          placeholder={`Amount (${getCurrencySymbol(currentCurrency)})`}
+          placeholder={`Enter Amount (${getCurrencySymbol(currentCurrency)})`}
           required
         />
         <input
           type="text"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
-          placeholder="Category"
+          placeholder="Enter Category"
           required
         />
         <select onChange={(e) => setType(e.target.value)} value={type}>
