@@ -169,6 +169,7 @@ button:hover {
   .components-container {
     flex-direction: column;
     align-items: center;
+    gap: 0px;
   }
 
   .side-component,
