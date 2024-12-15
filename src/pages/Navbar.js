@@ -21,6 +21,10 @@ const Navbar = () => {
     });
   };
 
+  const closeMenuOnRoute = () => {
+    setIsOpen(false); // Close the menu when a link is clicked
+  };
+
   useEffect(() => {
     if (isDarkMode) {
       document.body.classList.add("dark-mode");
@@ -37,12 +41,12 @@ const Navbar = () => {
           {isOpen ? <FaTimes className="icon" /> : <FaBars className="icon" />}
         </div>
         <ul className={isOpen ? "nav-list active" : "nav-list"}>
-          <li className="nav-item">
+          <li className="nav-item" onClick={closeMenuOnRoute}>
             <Link to="/" className="nav-link">
               Home
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item" onClick={closeMenuOnRoute}>
             <Link to="/contact" className="nav-link">
               Contact
             </Link>

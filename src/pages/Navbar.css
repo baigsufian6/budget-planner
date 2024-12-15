@@ -6,6 +6,7 @@
   align-items: center;
   position: relative;
   margin-bottom: 30px;
+  transition: background-color 0.3s ease; /* Smooth transition for background */
 }
 
 .navbar-container {
@@ -34,14 +35,23 @@
 }
 
 .nav-item {
-  background-color: yellowgreen !important;
+  background-color: yellowgreen !important; /* Softer green for items */
+  border-radius: 4px; /* Rounded corners for items */
+  transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+.nav-item:hover {
+  background-color: yellowgreen; /* Highlight on hover */
 }
 
 .nav-link {
+  display: block;
   text-decoration: none;
   color: white;
   font-size: 18px;
   font-weight: bold;
+  padding: 0 19px; /* Padding added for larger clickable area */
+  text-align: center;
 }
 
 .theme-icon {
@@ -53,6 +63,11 @@
   top: 50%;
   right: 20px;
   transform: translateY(-50%);
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.theme-icon:hover {
+  color: #ffdd57; /* Yellow highlight on hover */
 }
 
 .icon {
@@ -79,17 +94,28 @@
     border-radius: 8px;
     padding: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure it appears above other elements */
   }
 
   .nav-list.active {
     display: flex;
   }
 
+  .nav-item {
+    background-color: #4caf50;
+  }
+
+  .nav-item:hover {
+    background-color: #66bb6a; /* Slight hover effect for mobile */
+  }
+
   .nav-link {
     text-align: center;
     padding: 10px 0;
+    width: 100%; /* Ensure links take full width for touch devices */
   }
+
   .navbar-container {
-    justify-content: center;
+    justify-content: center; /* Reposition items for mobile */
   }
 }
