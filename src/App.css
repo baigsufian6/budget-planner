@@ -141,6 +141,41 @@ button:hover {
   background-color: #45a049;
 }
 
+.homepage-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  overflow-y: auto;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 36px;
+  color: #333;
+}
+
+/* Dark mode styles */
+.dark .homepage-container {
+  background-color: #111;
+  color: #fff;
+}
+
+.dark h1 {
+  color: #fff;
+}
+
+.scrollable-content {
+  max-height: 80vh;
+  overflow-y: auto;
+  width: 100%;
+  margin-top: 20px;
+  padding-right: 15px;
+}
+
+/* Container for components */
 .components-container {
   display: flex;
   flex-wrap: wrap;
@@ -148,6 +183,7 @@ button:hover {
   gap: 50px;
   margin-top: 20px;
   align-items: center;
+  width: 100%;
 }
 
 /* Side components (TransactionSummary and IncomeExpenseList) */
@@ -167,9 +203,21 @@ button:hover {
 /* Responsive layout for small screens */
 @media (max-width: 768px) {
   .components-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 0px;
+    flex-direction: column; /* Stack components vertically */
+    align-items: center; /* Center all components */
+    gap: 0px; /* Add space between stacked components */
+  }
+
+  .center-component {
+    order: 1;
+  }
+
+  .side-component:first-of-type {
+    order: 2;
+  }
+
+  .side-component:last-of-type {
+    order: 3;
   }
 
   .side-component,
