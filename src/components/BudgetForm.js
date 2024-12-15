@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTransaction } from "../redux/actions";
+import "./BudgetForm.css";
 
 const BudgetForm = () => {
   const dispatch = useDispatch();
