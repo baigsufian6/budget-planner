@@ -1,0 +1,61 @@
+.contact-container {
+  padding: 20px;
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: var(--contact-bg, #f9f9f9);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-heading {
+  text-align: center;
+  color: var(--contact-text, #333);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-label {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  color: var(--contact-text, #333);
+}
+
+.contact-input,
+.contact-textarea {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid var(--contact-border, #ccc);
+  margin-top: 5px;
+  background-color: var(--contact-input-bg, #fff);
+  color: var(--contact-text, #333);
+}
+
+.contact-textarea {
+  min-height: 100px;
+}
+
+.contact-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: var(--contact-button-bg, #4caf50);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+  --contact-bg: #333;
+  --contact-text: #f1f1f1;
+  --contact-border: #555;
+  --contact-input-bg: #444;
+  --contact-button-bg: #555;
+}
