@@ -1,19 +1,17 @@
 import React from "react";
+
 import BudgetForm from "../components/BudgetForm";
 import TransactionSummary from "../components/TransactionSummary";
 import IncomeExpenseList from "../components/IncomeExpenseList";
 
 const HomePage = () => {
   return (
-    <div className="home-container">
+    <div>
       <h1>Budget Planner</h1>
+      <div></div>
       <BudgetForm />
       <TransactionSummary />
-
-      <div className="scrollable-content">
-        {/* List of transactions */}
-        <IncomeExpenseList />
-      </div>
+      <IncomeExpenseList />
     </div>
   );
 };

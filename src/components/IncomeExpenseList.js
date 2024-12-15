@@ -1,9 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { getCurrencySymbol } from "../utils/currencyConverter";
 import "./IncomeExpenseList.css";
 
 const IncomeExpenseList = () => {
   const transactions = useSelector((state) => state.transactions);
+  const currency = useSelector((state) => state.currency);
+  const symbol = getCurrencySymbol(currency);
 
   return (
     <div>
@@ -11,8 +14,8 @@ const IncomeExpenseList = () => {
       <ul>
         {transactions.map((transaction, index) => (
           <li key={index}>
-            {transaction.type === "income" ? "Income" : "Expense"}: ₹
-            {transaction.amount} - {transaction.category}
+            {transaction.type === "income" ? "Income" : "Expense"}: {symbol}
+            {transaction.amount.toFixed(2)} - {transaction.category}
           </li>
         ))}
       </ul>

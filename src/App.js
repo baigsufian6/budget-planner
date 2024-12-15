@@ -1,25 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { Provider } from "react-redux";
-import HomePage from "./pages/HomePage"; // Import the HomePage component
-import store from "./redux/store"; // Import the Redux store
-import "./App.css"; // Import global styles
+import { FaSun, FaMoon } from "react-icons/fa"; // Import icons
+import HomePage from "./pages/HomePage";
+import store from "./redux/store";
+import "./App.css";
 
 const App = () => {
-  // Check localStorage for the theme on initial load, default to light mode
   const [isDarkMode, setIsDarkMode] = useState(
     localStorage.getItem("theme") === "dark"
   );
 
-  // Toggle dark/light mode
   const toggleTheme = () => {
     setIsDarkMode((prevMode) => {
       const newMode = !prevMode;
-      localStorage.setItem("theme", newMode ? "dark" : "light"); // Save theme in localStorage
+      localStorage.setItem("theme", newMode ? "dark" : "light");
       return newMode;
     });
   };
 
-  // Apply dark or light mode theme to the body
   useEffect(() => {
     if (isDarkMode) {
       document.body.classList.add("dark-mode");
@@ -32,9 +30,12 @@ const App = () => {
     <Provider store={store}>
       <div className="app-container">
         <button onClick={toggleTheme} className="theme-toggle-button">
-          Switch to {isDarkMode ? "Light" : "Dark"} Mode
+          {isDarkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
+          <span style={{ marginLeft: "8px" }}>
+            Switch to {isDarkMode ? "Light" : "Dark"} Mode
+          </span>
         </button>
-        <HomePage /> {/* Render HomePage component */}
+        <HomePage />
       </div>
     </Provider>
   );

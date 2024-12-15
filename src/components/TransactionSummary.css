@@ -9,8 +9,8 @@
   background-color: #fff;
   text-align: center;
   transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-  margin-top: 20px;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 h3 {

@@ -1,25 +1,9 @@
-import { ADD_TRANSACTION, SET_CURRENCY } from "./actions";
+import { ADD_TRANSACTION, SET_CURRENCY, CONVERT_TRANSACTIONS } from "./actions";
+import { convertCurrency } from "../utils/currencyConverter";
 
 const initialState = {
-  transactions: [], // List of all transactions
-  currency: "INR", // Default currency is INR
-};
-
-// Selectors to compute the total income, expenses, and balance
-const getTotalIncome = (transactions) => {
-  return transactions
-    .filter((transaction) => transaction.type === "income")
-    .reduce((total, transaction) => total + parseFloat(transaction.amount), 0);
-};
-
-const getTotalExpenses = (transactions) => {
-  return transactions
-    .filter((transaction) => transaction.type === "expense")
-    .reduce((total, transaction) => total + parseFloat(transaction.amount), 0);
-};
-
-const getBalance = (transactions) => {
-  return getTotalIncome(transactions) - getTotalExpenses(transactions);
+  transactions: [],
+  currency: "INR",
 };
 
 const reducer = (state = initialState, action) => {
@@ -27,13 +11,32 @@ const reducer = (state = initialState, action) => {
     case ADD_TRANSACTION:
       return {
         ...state,
-        transactions: [...state.transactions, action.payload], // Add new transaction
+        transactions: [...state.transactions, action.payload],
       };
+
     case SET_CURRENCY:
       return {
         ...state,
-        currency: action.payload, // Change the currency
+        currency: action.payload,
       };
+
+    case CONVERT_TRANSACTIONS:
+      // Convert all transaction amounts to the new currency
+      const convertedTransactions = state.transactions.map((transaction) => {
+        const newAmount = convertCurrency(
+          transaction.amount,
+          state.currency, // Current currency
+          action.payload // New currency
+        );
+        return { ...transaction, amount: newAmount }; // Update transaction with converted amount
+      });
+
+      return {
+        ...state,
+        transactions: convertedTransactions,
+        currency: action.payload, // Update current currency
+      };
+
     default:
       return state;
   }
@@ -41,8 +44,18 @@ const reducer = (state = initialState, action) => {
 
 export default reducer;
 
-// Computed properties (selectors) for total income, total expenses, and balance
-export const selectTotalIncome = (state) => getTotalIncome(state.transactions);
+// Selectors for totals and balance
+export const selectTotalIncome = (state) =>
+  state.transactions
+    .filter((transaction) => transaction.type === "income")
+    .reduce((total, transaction) => total + transaction.amount, 0);
+
 export const selectTotalExpenses = (state) =>
-  getTotalExpenses(state.transactions);
-export const selectBalance = (state) => getBalance(state.transactions);
+  state.transactions
+    .filter((transaction) => transaction.type === "expense")
+    .reduce((total, transaction) => total + transaction.amount, 0);
+
+export const selectBalance = (state) =>
+  selectTotalIncome(state) - selectTotalExpenses(state);
+
+export const selectCurrency = (state) => state.currency;
